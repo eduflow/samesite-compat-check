@@ -38,9 +38,43 @@ def test_iphone_6():
     assert should_send_same_site_none(IPHONE_6) is True
 
 
-###########
-# Android #
-###########
+########################
+# Android / UC Browser #
+########################
+
+# fmt: off
+LINUX_UC_BROWSER_9_3 = 'Mozilla/5.0 (X11; U; Linux i686; en-US) U2/1.0.0 UCBrowser/9.3.1.344'
+NOKIA_UC_BROWSER_8_7 = 'UCWEB/2.0 (Java; U; MIDP-2.0; Nokia203/20.37) U2/1.0.0 UCBrowser/8.7.0.218 U2/1.0.0 Mobile'
+SYMBIAN_UC_BROWSER_8_2 = 'Mozilla/5.0 (S60V5; U; en-us; Nokia5250)/UC Browser8.2.0.132/50/355/UCWEB Mobile'
+
+ANDROID_2_2_1_UC_BROWSER_9_0 = 'Mozilla/5.0 (Linux; U; Android 2.2.1; en-US; GT-S5830 Build/FROYO) AppleWebKit/534.31 (KHTML, like Gecko) UCBrowser/9.0.1.275 U3/0.8.0 Mobile Safari/534.31'
+ANDROID_4_4_2_UC_BROWSER_11_3 = 'Mozilla/5.0 (Linux; U; Android 4.4.2; zh-CN; HUAWEI MT7-TL00 Build/HuaweiMT7-TL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.2214.89 UCBrowser/11.3.8.909 Mobile Safari/537.36'
+ANDROID_5_1_1_UC_BROWSER_11_7 = 'Mozilla/5.0(Linux;U;Android 5.1.1;zh-CN;OPPO A33 Build/LMY47V) AppleWebKit/537.36(KHTML,like Gecko) Version/4.0 Chrome/40.0.2214.89 UCBrowser/11.7.0.953 Mobile Safari/537.36'
+ANDROID_5_1_1_UC_BROWSER_10_8 = 'Mozilla/5.0 (Linux; U; Android 5.1.1; en-US; LG-D722 Build/LMY48Y) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 UCBrowser/10.8.0.718 U3/0.8.0 Mobile Safari/534.30'
+ANDROID_6_0_1_UC_BROWSER_11_5 = 'Mozilla/5.0 (Linux; U; Android 6.0.1; zh-CN; F5121 Build/34.0.A.1.247) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.2214.89 UCBrowser/11.5.1.944 Mobile Safari/537.36'
+ANDROID_8_1_0_UC_BROWSER_11_9 = 'Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EML-AL00 Build/HUAWEIEML-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.108 baidu.sogo.uc.UCBrowser/11.9.4.974 UWS/2.13.1.48 Mobile Safari/537.36 AliApp(DingTalk/4.5.11) com.alibaba.android.rimet/10487439 Channel/227200 language/zh-CN'
+# fmt: on
+
+
+def test_uc_browser_on_linux():
+    assert should_send_same_site_none(LINUX_UC_BROWSER_9_3) is True
+
+
+def test_uc_browser_on_nokia():
+    assert should_send_same_site_none(NOKIA_UC_BROWSER_8_7) is True
+
+
+def test_uc_browser_on_symbian():
+    assert should_send_same_site_none(SYMBIAN_UC_BROWSER_8_2) is True
+
+
+def test_android():
+    assert should_send_same_site_none(ANDROID_2_2_1_UC_BROWSER_9_0) is False
+    assert should_send_same_site_none(ANDROID_4_4_2_UC_BROWSER_11_3) is False
+    assert should_send_same_site_none(ANDROID_5_1_1_UC_BROWSER_11_7) is False
+    assert should_send_same_site_none(ANDROID_5_1_1_UC_BROWSER_10_8) is False
+    assert should_send_same_site_none(ANDROID_6_0_1_UC_BROWSER_11_5) is False
+    assert should_send_same_site_none(ANDROID_8_1_0_UC_BROWSER_11_9) is False
 
 
 ####################
