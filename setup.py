@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 import io
 import os
 import re
@@ -15,9 +16,7 @@ def read(filename):
 
 # Werkzeug and Flask do it like this, requests just does `eval('__version.py__').
 here = os.path.abspath(os.path.dirname(__file__))
-with open(
-    os.path.join(here, 'samesite_compat_check', '__version__.py'), encoding='utf-8'
-) as f:
+with open(os.path.join(here, 'samesite_compat_check', '__version__.py')) as f:
     version = re.search(r"__version__ = '(.*?)'", f.read()).group(1)
 
 
