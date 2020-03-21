@@ -91,6 +91,10 @@ Useful references
 * <https://github.com/GoogleChromeLabs/samesite-examples>  
   This repo has examples for setting a cookie with the SameSite-attribute in Python and in Flask,
   but does not implement any of the browser incompatibility checks.
+* <https://github.com/linsight/should-send-same-site-none>  
+  A Javascript package similar to this one.
+* <https://itnext.io/user-agent-sniffing-only-way-to-deal-with-upcoming-samesite-cookie-changes-6f79a18e541>  
+  An alternative implementation in Javascript that isn't based off the Chromium project pseudocode.
 
 Authors
 -------
