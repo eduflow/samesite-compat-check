@@ -6,11 +6,18 @@ samesite-compat-check
 
 This is a Python port of the [Chromium project's browser compatibility check] for `SameSite=None`-cookies.
 
+samesite-compat-check exposes a single function `should_send_same_site_none`
+which takes a `User-Agent` string and returns `True` if `SameSite=None` is
+supported by the browser with the given `User-Agent` and `False` if not.
+
+SameSite cookies
+----------------
 You probably already know what `SameSite`-cookies are -- if not, I recommend you
 read <https://web.dev/samesite-cookies-explained/> at the very least.
 
-`SameSite=None`-cookies are mostly relevant to people who serve content inside
-iframes. So if you don't use iframes or `SameSite=None` for other reasons you
+`SameSite=None`-cookies are mostly relevant to people who needs cookies on CORS
+requests or need cookies inside an iframe. So if you don't use cookies when
+doing CORS or in iframes (or use `SameSite=None` for some other reason) you
 can safely ignore this package.
 
 You may say -- who uses iframes nowadays? Well, plenty of things do!
@@ -39,19 +46,23 @@ Usage
 -----
 General use:
 
-    from samesite_compat_check import should_send_same_site_none
+```python
+from samesite_compat_check import should_send_same_site_none
 
-    if should_send_same_site_none(user_agent):
-        # Set cookie with `SameSite=None`
-    else:
-        # Set cookie without any `SameSite` attribute
+if should_send_same_site_none(user_agent):
+    # Set cookie with `SameSite=None`
+else:
+    # Set cookie without any `SameSite` attribute
+```
 
 ### Django
 
-    if should_send_same_site_none(request.META['HTTP_USER_AGENT']):
-        response.cookies['my_precious_cookie']['samesite'] = 'None'
-    else:
-        pass
+```python
+if should_send_same_site_none(request.META['HTTP_USER_AGENT']):
+    response.cookies['my_precious_cookie']['samesite'] = 'None'
+else:
+    pass
+```
 
 Setting `response.set_cookie(..., samesite='none')` will be allowed from
 Django 3.1 and onwards. Currently only `lax` and `strict` are allowed in
@@ -61,16 +72,18 @@ tested that particular detail in a browser.
 
 ### Flask
 
-    from flask import request
+```python
+from flask import request
 
-    kwargs = {}
-    if should_send_same_site_none(request.headers.get('User-Agent')):
-        kwargs['samesite'] = 'None'
+kwargs = {}
+if should_send_same_site_none(request.headers.get('User-Agent')):
+    kwargs['samesite'] = 'None'
 
-    # Requires Werkzeug>=1.0.0 (a Flask dependency) in order to use `samesite` 
-    response.set_cookie(
-        'my_precious_cookie', value='123abc', secure=True, **kwargs
-    )
+# Requires Werkzeug>=1.0.0 (a Flask dependency) in order to use `samesite` 
+response.set_cookie(
+    'my_precious_cookie', value='123abc', secure=True, **kwargs
+)
+```
 
 Requirements
 ------------
@@ -100,7 +113,7 @@ Authors
 -------
 `samesite-compat-check` was written by `Malthe Jørgensen <malthe.jorgensen@gmail.com>` at Peergrade Inc.,
 and is a port of Chromium's pseudocode for checking browsers incompatible with `SameSite=None` cookies
-which can be found here.
+which can be found here:
 <https://www.chromium.org/updates/same-site/incompatible-clients>
 
 That pseudocode is Copyright 2019 Google LLC. and released under the Apache 2.0
