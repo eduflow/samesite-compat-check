@@ -53,14 +53,14 @@ def is_ios_version(major, useragent):
     regex = re.compile(r"\(iP.+; CPU .*OS (\d+)[_\d]*.*\) AppleWebKit/")
     match = regex.search(useragent)
     # _extract digits from first capturing group.
-    return match and match[1] == str(major)
+    return match and match.group(1) == str(major)
 
 
 def is_macosx_version(major, minor, useragent):
     regex = re.compile(r"\(Macintosh;.*Mac OS X (\d+)_(\d+)[_\d]*.*\) AppleWebKit/")
     match = regex.search(useragent)
     # _extract digits from first and second capturing groups.
-    return match and match[1] == str(major) and match[2] == str(minor)
+    return match and match.group(1) == str(major) and match.group(2) == str(minor)
 
 
 def is_safari(useragent):
@@ -87,7 +87,7 @@ def is_chromium_version_at_least(major, useragent):
     if not match:
         return False
     # _extract digits from first capturing group.
-    version = int(match[1])
+    version = int(match.group(1))
     return version >= major
 
 
@@ -102,9 +102,9 @@ def is_uc_browser_version_at_least(major, minor, build, useragent):
     if not match:
         return False
     # _extract digits from three capturing groups.
-    major_version = int(match[1])
-    minor_version = int(match[2])
-    build_version = int(match[3])
+    major_version = int(match.group(1))
+    minor_version = int(match.group(2))
+    build_version = int(match.group(3))
     if major_version != major:
         return major_version > major
     if minor_version != minor:
