@@ -4,7 +4,7 @@ samesite-compat-check
 [![Latest PyPI version](https://img.shields.io/pypi/v/samesite-compat-check.svg)](https://pypi.python.org/pypi/samesite-compat-check)
 [![Latest Travis CI build status](https://travis-ci.org/peergradeio/samesite-compat-check.png)](https://travis-ci.org/peergradeio/samesite-compat-check)
 
-This is a port of the [Chromium project's browser compatibility check] for `SameSite=None`-cookies.
+This is a Python port of the [Chromium project's browser compatibility check] for `SameSite=None`-cookies.
 
 You probably already know what `SameSite`-cookies are -- if not, I recommend you
 read <https://web.dev/samesite-cookies-explained/> at the very least.
@@ -72,23 +72,15 @@ tested that particular detail in a browser.
         'my_precious_cookie', value='123abc', secure=True, **kwargs
     )
 
+Requirements
+------------
+`samesite-compat-check` has no dependencies and is tested on
+Python 2.7, 3.4, 3.5, 3.6, 3.7, 3.8, and PyPy 3.
 
 Installation
 ------------
 
     pip install samesite-compat-check
-
-Requirements
-------------
-
-Python
-
-Compatibility
--------------
-
-Licence
--------
-Apache 2.0
 
 Authors
 -------
