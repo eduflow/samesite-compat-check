@@ -56,6 +56,9 @@ ANDROID_8_1_0_UC_BROWSER_11_9 = 'Mozilla/5.0 (Linux; U; Android 8.1.0; zh-CN; EM
 # fmt: on
 
 
+'''The following tests are disabled since it's unclear what the behavior
+should be:
+
 def test_uc_browser_on_linux():
     assert should_send_same_site_none(LINUX_UC_BROWSER_9_3) is True
 
@@ -66,6 +69,7 @@ def test_uc_browser_on_nokia():
 
 def test_uc_browser_on_symbian():
     assert should_send_same_site_none(SYMBIAN_UC_BROWSER_8_2) is True
+'''
 
 
 def test_android():
