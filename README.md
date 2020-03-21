@@ -92,7 +92,7 @@ Apache 2.0
 
 Authors
 -------
-`samesite-compat-check` was written by `Malthe Jørgensen <malthe.jorgensen@gmail.com>`,
+`samesite-compat-check` was written by `Malthe Jørgensen <malthe.jorgensen@gmail.com>` at Peergrade Inc.,
 and is a port of Chromium's pseudocode for checking browsers incompatible with `SameSite=None` cookies
 which can be found here.
 <https://www.chromium.org/updates/same-site/incompatible-clients>

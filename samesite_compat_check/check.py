@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 # Ported from: https://www.chromium.org/updates/same-site/incompatible-clients
 #
 # Changes made:
@@ -7,7 +8,7 @@
 # * Use `re.search` for all regex matching
 #
 # Copyright 2019 Google LLC.
-# Spdx-License-Identifier: Apache-2.0
+# Copyright 2020 Peergrade Inc. / Malthe Jørgensen
 
 # Check clients that are known to be incompatible with `SameSite=None`.
 
