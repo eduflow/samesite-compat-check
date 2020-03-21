@@ -81,6 +81,16 @@ Installation
 ------------
 
     pip install samesite-compat-check
+    
+Useful references
+----------------
+* <https://github.com/jotes/django-cookies-samesite>  
+  This package serves as a good example of implementing the SameSite cookie in Django.  
+  However, only checks for Chrome/Chromium version 51-66, not iOS, macOS, and UC Browser.
+  However 
+* <https://github.com/GoogleChromeLabs/samesite-examples>  
+  This repo has examples for setting a cookie with the SameSite-attribute in Python and in Flask,
+  but does not implement any of the browser incompatibility checks.
 
 Authors
 -------
