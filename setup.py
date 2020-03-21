@@ -18,7 +18,7 @@ setup(
     name="samesite-compat-check",
     version="0.1.0",
     url="https://github.com/peergradeio/samesite-compat-check",
-    license='MIT',
+    license='Apache License 2.0',
 
     author="Malthe Jørgensen",
     author_email="malthe.jorgensen@gmail.com",
@@ -31,8 +31,8 @@ setup(
     install_requires=[],
 
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
-        'License :: OSI Approved :: MIT License',
+        'Development Status :: 4 - Beta',
+        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
