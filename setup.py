@@ -13,10 +13,15 @@ def read(filename):
         return re.sub(text_type(r':[a-z]+:`~?(.*?)`'), text_type(r'``\1``'), fd.read())
 
 
+# Werkzeug and Flask do it like this, requests just does `eval('__version.py__').
+with open("samesite_compat_check/__version__.py", encoding="utf8") as f:
+    version = re.search(r"__version__ = '(.*?)'", f.read()).group(1)
+
+
 # fmt: off
 setup(
     name="samesite-compat-check",
-    version="0.1.0",
+    version=version,
     url="https://github.com/peergradeio/samesite-compat-check",
     license='Apache License 2.0',
 
