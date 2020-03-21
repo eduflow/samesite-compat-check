@@ -1,0 +1,24 @@
+language: python
+# command to install dependencies
+install: "pip install -e .; pip install pytest"
+# command to run tests
+script:
+  - pytest tests
+cache: pip
+jobs:
+  include:
+    - stage: test
+      python: '2.7'
+    - stage: test
+      python: '3.4'
+    - stage: test
+      python: '3.5'
+    - stage: test
+      python: '3.6'
+    - stage: test
+      python: '3.7' 
+    - stage: test
+      python: 'pypy3'
+      dist: xenial
+    - stage: test
+      python: '3.8'
