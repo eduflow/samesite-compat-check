@@ -25,6 +25,7 @@ setup(
 
     description="A port of Chrome's browser compatibility check for SameSite=None cookies",
     long_description=read("README.md"),
+    long_description_content_type="text/markdown",
 
     packages=find_packages(exclude=('tests',)),
 
