@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 """samesite-compat-check - A port of Chrome's browser compatibility check for SameSite=None cookies"""
 
 __version__ = '0.1.0'
