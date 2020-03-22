@@ -14,6 +14,12 @@ cookie:
 '''
 
 
+def test_none():
+    '''An unknown User-Agent string is allowed to receive the `SameSite=None`
+    cookie'''
+    assert should_send_same_site_none(None) is True
+
+
 def test_unknown():
     '''An unknown User-Agent string is allowed to receive the `SameSite=None`
     cookie'''

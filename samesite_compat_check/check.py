@@ -16,7 +16,7 @@ import re
 
 
 def should_send_same_site_none(useragent):
-    return not is_same_site_none_incompatible(useragent)
+    return useragent is None or not is_same_site_none_incompatible(useragent)
 
 
 # _classes of browsers known to be incompatible.

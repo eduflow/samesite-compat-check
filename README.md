@@ -10,6 +10,18 @@ samesite-compat-check exposes a single function `should_send_same_site_none`
 which takes a `User-Agent` string and returns `True` if `SameSite=None` is
 supported by the browser with the given `User-Agent` and `False` if not.
 
+If `User-Agent` is `None` then `should_send_same_site_none` returns `True`.  
+_This is the only addition on top of the pseudocode from the Chromium project_
+
+The reason for this added behavior is to handle the case where the
+`User-Agent`-header is not sent. The logic is that only  browsers that
+specifically mishandle `SameSite=None` should have the attribute omitted. You
+can safely send `SameSite=None`-attribute to a browser that doesn't recognize
+the attribute (e.g. an older browser). As in that case `SameSite` will be
+ignored, and you'll automatically get the behavior you intended, as cookies
+before the `SameSite`-attibute were introduced worked as similar to
+`SameSite=None`.
+
 SameSite cookies
 ----------------
 You probably already know what `SameSite`-cookies are -- if not, I recommend you
